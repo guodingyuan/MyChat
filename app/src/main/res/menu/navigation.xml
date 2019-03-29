@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_chat"
+        android:icon="@drawable/chat"
+        android:title="@string/main_chat" />
+
+    <item
+        android:id="@+id/navigation_address_list"
+        android:icon="@drawable/address_list"
+        android:title="@string/main_address_list" />
+
+    <item
+        android:id="@+id/navigation_find"
+        android:icon="@drawable/find"
+        android:title="@string/main_find" />
+
+    <item
+        android:id="@+id/navigation_me"
+        android:icon="@drawable/me"
+        android:title="@string/main_me" />
+</menu>

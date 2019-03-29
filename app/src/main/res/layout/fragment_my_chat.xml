@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.gdy.mychat.wedgit.pullextend.PullExtendLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pull_extend"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <com.gdy.mychat.wedgit.pullextend.ExtendListHeader
+        android:id="@+id/extend_header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center_vertical"
+            android:background="@color/colorPrimary">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:paddingLeft="16dp"
+                android:textColor="@color/textBlack"
+                android:text="我信"/>
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginRight="32dp"
+                android:src="@drawable/search"/>
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginRight="16dp"
+                android:src="@drawable/add"/>
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/myRV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"/>
+    </LinearLayout>
+
+
+    <com.gdy.mychat.wedgit.pullextend.ExtendListFooter
+        android:id="@+id/extend_footer"
+        android:layout_width="match_parent"
+        android:layout_height="460dp"/>
+
+</com.gdy.mychat.wedgit.pullextend.PullExtendLayout>

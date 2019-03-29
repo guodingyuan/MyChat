@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="8dp"
+    tools:ignore="MissingPrefix" >
+
+    <View
+        android:id="@+id/photo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:bl_shape="rectangle"
+        app:bl_corners_radius="8dp"
+        app:bl_solid_color="@color/color_green1"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="4dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/nameTV"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="名字"
+                android:textColor="@color/textBlack"
+                android:textSize="16sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="26dp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="12sp"
+                android:text="08:08"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="12sp"
+            android:text="你该回家吃饭了！！！"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="16dp"
+            android:background="@color/colorPrimary"/>
+    </LinearLayout>
+
+</LinearLayout>
