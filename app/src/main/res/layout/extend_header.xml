@@ -29,9 +29,9 @@
                 android:gravity="center_vertical"
                 android:textSize="14sp"
                 android:padding="12dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="40dp"/>
+                android:layout_marginLeft="26dp"
+                android:layout_marginRight="26dp"
+                android:layout_marginTop="20dp"/>
             <LinearLayout
                 android:id="@+id/canSeeLL"
                 android:layout_width="match_parent"

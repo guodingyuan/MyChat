@@ -112,8 +112,7 @@ public class ExtendListHeader extends ExtendLayout {
         mNestedScrollView = findViewById(R.id.mNestedScrollView);
         mRecyclerView1.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false));
         mRecyclerView2.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false));
-        String[] name={"大程序1","大程序2","大程序3","大程序4","大程序5","大程序6"};
-        List<String> list=Arrays.asList(name);
+        List<String> list=Arrays.asList("大程序1","大程序2","大程序3","大程序4","大程序5","大程序6");
         HomeRVadapter homeRVadapter=new HomeRVadapter(R.layout.home_program_item,list);
         mRecyclerView1.setAdapter(homeRVadapter);
         mRecyclerView2.setAdapter(homeRVadapter);

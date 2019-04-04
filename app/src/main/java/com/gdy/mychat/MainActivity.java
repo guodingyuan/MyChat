@@ -1,10 +1,10 @@
 package com.gdy.mychat;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -47,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
         navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         BottomNavigationViewHelper.disableShiftMode(navigation);
+        BottomNavigationViewHelper.setBadge(navigation,0,888);
+        BottomNavigationViewHelper.setBadge(navigation,1,66);
+        BottomNavigationViewHelper.setBadge(navigation,2,8);
+        BottomNavigationViewHelper.setBadge(navigation,3,0);
         mPager = findViewById(R.id.container_pager);
         mFragments = new ArrayList<>();
         mFragments.add(new MyChatFragment());

@@ -10,7 +10,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.widget.LinearLayout;
@@ -27,7 +26,7 @@ public class PullExtendLayout extends LinearLayout implements IPullToExtend {
     /**
      * 回滚的时间
      */
-    private static final int SCROLL_DURATION = 200;
+    private static final int SCROLL_DURATION = 50;//不能太大，太大的话有抖动现象，也不能为0，否则会显示异常
     /**
      * 阻尼系数
      */
@@ -181,19 +180,19 @@ public class PullExtendLayout extends LinearLayout implements IPullToExtend {
      * @param context context
      */
     private void init(Context context) {
-        mTouchSlop = (int) (ViewConfiguration.get(context).getScaledTouchSlop() * 1.5);
+        mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();//(int) (ViewConfiguration.get(context).getScaledTouchSlop() * 1.5);为了灵敏点，解决滑动冲突，该值可减小点
         /*ViewGroup.LayoutParams layoutParams = mRefreshableView.getLayoutParams();
         layoutParams.height = 10;
         mRefreshableView.setLayoutParams(layoutParams);*/
 
         // 得到Header的高度，这个高度需要用这种方式得到，在onLayout方法里面得到的高度始终是0
-        getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
+      /*  getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
                 refreshLoadingViewsSize();
                 getViewTreeObserver().removeOnGlobalLayoutListener(this);
             }
-        });
+        });*/
     }
 
     /**
@@ -317,7 +316,11 @@ Log.e("gdy","目前滑动距离："+getScrollYValue());
                         int scrollY = mNestedScrollView.getScrollY();
                         View onlyChild = mNestedScrollView.getChildAt(0);
                         float distance=onlyChild.getHeight()-(scrollY + mNestedScrollView.getHeight());
-                        //Log.e("gdy","距离："+distance);
+                        Log.e("gdy","距离1："+onlyChild.getHeight());
+                        Log.e("gdy","距离2："+scrollY);
+                        Log.e("gdy","距离3："+mNestedScrollView.getHeight());
+                        Log.e("gdy","距离方向："+deltaY);
+                        Log.e("gdy","距离总："+distance);
                         if (distance>0 || (distance==0 && deltaY>0)){
                             return false;
                         }
@@ -329,25 +332,8 @@ Log.e("gdy","目前滑动距离："+getScrollYValue());
                     return false;
                 }
 
-
-                //如果主View存在滑动控件，则必须处理滑动冲突
-                /*if(mScrollRefreshableView!=null){
-                    //当主View处于初始状态时，不拦截事件
-                    if(getScrollYValue()==0){
-                        if(mScrollRefreshableView instanceof RecyclerView){
-                            RecyclerView mRecyclerView= (RecyclerView) mScrollRefreshableView;
-                            Log.e("gdy","可上滑："+mRecyclerView.canScrollVertically(1)+"，可下滑："+mRecyclerView.canScrollVertically(-1)+",deltaY："+deltaY);
-                            if((mRecyclerView.canScrollVertically(1) && deltaY<0) || (mRecyclerView.canScrollVertically(-1) && deltaY>0)){
-                                Log.e("gdy","进来");
-                                //注意进行方向的判定
-                                return false;
-                            }
-                        }
-                    }
-                }*/
-
-
                 final float absDiff = Math.abs(deltaY);
+                Log.e("gdy","哈哈哈："+absDiff+",嘿嘿嘿："+mTouchSlop);
                 // 位移差大于mTouchSlop，这是为了防止快速拖动引发刷新
                 if ((absDiff > mTouchSlop)) {
                     mLastMotionY = event.getY();
@@ -371,6 +357,7 @@ Log.e("gdy","目前滑动距离："+getScrollYValue());
             default:
                 break;
         }
+        Log.e("gdy","是否拦截："+mIsHandledTouchEvent);
         return mIsHandledTouchEvent;
     }
 
